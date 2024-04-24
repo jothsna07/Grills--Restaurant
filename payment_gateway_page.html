@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Ubuntu">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+    <link rel="stylesheet" href="paystyles.css">
+    <link rel="icon" href="favicon.svg" type="image/x-icon">
+</head>
+<body>
+<div class="wrapper">
+  <div class="payment">
+    <div class="payment-logo">
+      <p>p</p>
+    </div>
+    <h2>Payment Gateway</h2>
+    <div class="form">
+      <div class="card space icon-relative">
+        <label class="label">Card holder:</label>
+        <input id="cardHolder" type="text" class="input" placeholder="Card Holder Name">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="card space icon-relative">
+        <label class="label">Card number:</label>
+        <input id="cardNumber" type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Card Number" oninput="this.value = this.value.replace(/\D/g, '')">
+        <i class="far fa-credit-card"></i>
+      </div>
+      <div class="card-grp">
+        <div class="card-item icon-relative">
+          <label class="label">Expiry date:</label>
+          <input id="expiryDate" type="text" name="expiry-date" class="input" placeholder="MM / YY" maxlength="7">
+          <i class="far fa-calendar-alt"></i>
+        </div>
+        <div class="card-item icon-relative">
+          <label class="label">CVC:</label>
+          <input id="cvc" type="text" class="input" data-mask="000" placeholder="000">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+      <!-- Placeholder for QR code -->
+      <div id="qrCodeContainer" class="card-item icon-relative" style="display:none;">
+        <label class="label">Reservation QR Code:</label>
+        <img id="qrImg" src="" alt="QR Code">
+      </div>
+      <div class="btn" onclick="generateQRCode()">Pay</div>
+    </div>
+  </div>
+</div>
+<script>
+  function generateQRCode() {
+    var cardHolder = document.getElementById('cardHolder').value;
+    var cardNumber = document.getElementById('cardNumber').value;
+    var expiryDate = document.getElementById('expiryDate').value;
+    var cvc = document.getElementById('cvc').value;
+
+    // Check if all fields are filled
+    if (cardHolder && cardNumber && expiryDate && cvc) {
+      var data = cardHolder + ' ' + cardNumber + ' ' + expiryDate + ' ' + cvc;
+      var imgSrc = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + data;
+      var qrImg = document.getElementById('qrImg');
+      qrImg.src = imgSrc;
+      document.getElementById('qrCodeContainer').style.display = 'block'; // Display QR code container
+    } else {
+      alert('Please fill in all fields before proceeding.');
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var expiryInput = document.querySelector('input[name="expiry-date"]');
+    expiryInput.addEventListener('input', function(event) {
+      var input = event.target.value;
+      if (input.length === 2 && !input.includes('/')) {
+        input += ' / ';
+      }
+      event.target.value = input;
+    });
+  });
+</script>
+</body>
+</html>
