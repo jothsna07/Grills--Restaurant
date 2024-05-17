@@ -1,0 +1,211 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+
+/* Login Page Styles */
+#loginPage {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    width: 300px;
+    margin: 100px auto;
+}
+
+#loginPage h2 {
+    color: #333;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#loginForm button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#loginForm button:hover {
+    background-color: #0056b3;
+}
+
+/* Admin Panel Styles */
+#adminPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#header {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px; /* Adjust padding as needed */
+}
+
+#logo-container {
+    width: 150px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the logo */
+}
+
+#logo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+
+
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#navbar a:hover {
+    background-color: #555;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Reviews Page Styles */
+#reviewsPage {
+    padding: 20px;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.review-card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Analytics Page Styles */
+#analyticsPage {
+    padding: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+#analyticsTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+#analyticsTable th, #analyticsTable td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+#analyticsTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#analyticsTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#analyticsTable tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+
+/* Logout Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
